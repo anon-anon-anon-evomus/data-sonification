@@ -156,8 +156,8 @@ def create_song():
             for insert in range(times):
                 # if we want to insert it four times, we need to space it such that it fits in one measure, we do that by 
                 # dividing 480, the number of ticks per measure over the number of times
-                track.append(Message('note_on', note=key[i], velocity=40, time=int(960/times)))
-                track.append(Message('note_off', note=key[i], velocity=40, time=int(1100/times)))
+                track.append(Message('note_on', note=key[i], velocity=90, time=int(960/times)))
+                track.append(Message('note_off', note=key[i], velocity=90, time=int(1100/times)))
                 track.append(Message('program_change', program=12 + i))
 
         
@@ -169,8 +169,8 @@ def create_song():
         midi_individual.tracks.append(track_individual)
 
         track_individual.append(Message('program_change', program=12+i))
-        track_individual.append(Message('note_on', note=key[i], velocity=40, time=1))
-        track_individual.append(Message('note_off', note=key[i], velocity=40, time=480))
+        track_individual.append(Message('note_on', note=key[i], velocity=90, time=1))
+        track_individual.append(Message('note_off', note=key[i], velocity=90, time=480))
         midi_individual_name = 'air' + str(i) + '.midi'
         midi_individual.save(midi_individual_name)
         wav_individual_name = 'static/air' + str(i) + '.wav'

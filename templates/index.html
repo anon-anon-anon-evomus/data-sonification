@@ -317,14 +317,18 @@ function log_years() {
 	//var months_string = '{{months}}'
 	//document.getElementById("years").innerHTML = months_string.split(',')[iter_year].substring(6,13)
 	//iter_year = iter_year + 1	
-	intervalID = window.setInterval(myCallback, 2300);
+
+	// this updates the years. Calls the function the amount of time specified in the setinterval function
+	intervalID = window.setInterval(myCallback, 2100);
 	console.log(intervalID)
 	
 }
 
 function myCallback() {
+	// for some reason the list of years received from the flask app is a string, divided by commas, so thats how I parse it
 	var months_string = '{{months}}'
 	if (months_string.split(',').length > iter_year) {
+	// the string is full of weird characters, 6-13 is what interests me
 	document.getElementById("years").innerHTML = months_string.split(',')[iter_year].substring(6,13)
 	months_string.split(',')[0]
 	console.log(months_string.split(',')[iter_year].substring(6,13))
