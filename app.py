@@ -199,6 +199,7 @@ def create_song():
     # 1/64 = hazardous  
     
     if os.path.isfile('./static/air.wav'):
+        whatever = 0
         #delete_comm = subprocess.run(['rm','./static/air.wav'])
     else:
         print ("air.wav was not created yet")
