@@ -1,4 +1,4 @@
-# data-sonification
+# Turning data into sound: a first full pipeline experiment
 
 The code for pulling data from the API and converting it into sound is located in app.py. 
 
