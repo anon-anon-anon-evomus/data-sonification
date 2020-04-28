@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400&display=swap" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<style>
+
+.container {
+	text-align: center;
+	margin-right: 10%;
+	margin-left: 10%;
+	color: #FFFFFF ;
+   font-family: 'Roboto Mono', monospace ;
+
+body{
+  text-align: center;
+  background-color: $baby-blue;
+}
+
+  .text
+{   
+   color: #FFFFFF ;
+   font-family: 'Roboto Mono', monospace ;
+}
+
+#years {
+	font-size: 40px !important;
+}
+
+
+  box-sizing: border-box;
+}
+body {
+  font-family: "Open Sans";
+  line-height: 1.618em;
+  background: #2c3e50;
+}
+.wrapper {
+  max-width: 65rem;
+  width: 100%;
+  margin: 2rem auto;
+  padding: 5rem;
+  text-align: center;
+  background: #fff;
+  border: 0.5rem solid #34495e;
+}
+hr {
+  border: 0;
+  border-bottom: 0.0625rem solid #bbb;
+  margin: 3rem 0;
+}
+button {
+  font-size: 2em;
+  background: #3498db;
+  color: #fff;
+  border: 0.25rem solid #3498db;
+  padding: 0.85em 0.75em;
+  margin: 1rem;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+button:hover {
+  color: #3498db;
+}
+button::after {
+  content: "";
+  background: #ecf0f1;
+  position: absolute;
+  z-index: -1;
+  padding: 0.85em 0.75em;
+  display: block;
+}
+button[class^="slide"]::after {
+  transition: all 0.35s;
+}
+button[class^="slide"]:hover::after {
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  transition: all 0.35s;
+}
+button.slide_from_left::after {
+  top: 0;
+  bottom: 0;
+  left: -100%;
+  right: 100%;
+}
+button.slide_from_right::after {
+  top: 0;
+  bottom: 0;
+  left: 100%;
+  right: -100%;
+}
+button.slide_from_top::after {
+  left: 0;
+  right: 0;
+  top: -100%;
+  bottom: 100%;
+}
+button.slide_from_bottom::after {
+  left: 0;
+  right: 0;
+  top: 100%;
+  bottom: -100%;
+}
+button[class^="grow"]::after {
+  transition: all 0.3s ease;
+}
+button[class^="grow"]:hover::after {
+  transition: all 0.3s ease-out;
+}
+button.grow_box::after {
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  transform: scale(0, 0);
+}
+button.grow_box:hover::after {
+  transform: scale(1, 1);
+}
+button.grow_ellipse::after {
+  border-radius: 50%;
+  left: -50%;
+  right: -50%;
+  top: -150%;
+  bottom: -150%;
+  line-height: 8.34em;
+  transform: scale(0, 0);
+}
+button.grow_ellipse:hover::after {
+  transform: scale(1, 1);
+}
+button.grow_skew_forward::after {
+  left: -20%;
+  right: -20%;
+  top: 0;
+  bottom: 0;
+  transform: skewX(-45deg) scale(0, 1);
+}
+button.grow_skew_forward:hover::after {
+  transform: skewX(-45deg) scale(1, 1);
+}
+button.grow_skew_backward::after {
+  left: -20%;
+  right: -20%;
+  top: 0;
+  bottom: 0;
+  transform: skewX(45deg) scale(0, 1);
+}
+button.grow_skew_backward:hover::after {
+  transform: skewX(45deg) scale(1, 1);
+}
+button.grow_spin::after {
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  transform: scale(0, 0) rotate(-180deg);
+}
+button.grow_spin:hover::after {
+  transform: scale(1, 1) rotate(0deg);
+}
+
+
+
+   
+</style>
+<body>
+
+
+
+<audio id='audio' controls style='display: none;'>
+  <source src={{ url_for('static', filename=audio_file) }} type="audio/mpeg">
+Your browser does not support the audio element.
+</audio>
+
+<audio id='audio0' controls style='display: none;'>
+  <source src={{ url_for('static', filename='air0.wav') }} type="audio/mpeg">
+Your browser does not support the audio element.
+</audio>
+
+<audio id='audio1' controls style='display: none;'>
+  <source src={{ url_for('static', filename='air1.wav') }} type="audio/mpeg">
+Your browser does not support the audio element.
+</audio>
+
+<audio id='audio2' controls style='display: none;'>
+  <source src={{ url_for('static', filename='air2.wav') }} type="audio/mpeg">
+Your browser does not support the audio element.
+</audio>
+
+<audio id='audio3' controls style='display: none;'>
+  <source src={{ url_for('static', filename='air3.wav') }} type="audio/mpeg">
+Your browser does not support the audio element.
+</audio>
+
+<audio id='audio4' controls style='display: none;'>
+  <source src={{ url_for('static', filename='air4.wav') }} type="audio/mpeg">
+Your browser does not support the audio element.
+</audio>
+
+
+<div class="container">
+	<div class = 'text'>
+		</br>
+		
+	<h1>Hearing data</h1>	
+	</br>
+Ancient humans were expert listeners. Without the ubiquitous of electric lighting and more immediately exposed to the dangers of the wilderness, once the night came, hearing was survival. 
+</br>
+</br>
+The Waorani people of the Ecuadorian Amazon know this very well: when a member of the community gets lost, they turn Ceiba trees into subwoofers, pounding them to produce a sound that serves both as an alert and guide for family and friends. But hearing is also connection. They avoid the use of rain clothing, even when pressed to do so, since the noise of rain drops against it eclipses the sounds of the Amazon. Industrial activity is not only destructive in an ecological sense, but also in a spiritual one: the cries of machines mute the forest's songs to which the Waorani culture dances. 
+		</br>
+		</br>
+As humans moved into cities, we tuned out from our auditory environment. Not only it is not as useful for surviving anymore, but it is mostly noise. The rise of the screen provided a final blow which turned us into a visual society. 
+		</br>
+		</br>
+As such, we consume data through graphical representations. But the efficiency of graphs abstracts away the possibility of an emotional engagement. Listening on the other hand, with its lesser bandwidth, requires mindful attention: it invokes a closer connection. 
+		</br>
+		</br>
+The aim of this experiment is to stimulate the use of hearing to engage with a dataset and reclaim, even symbolically, our ability to extract meaning from sound. The data contains air quality readings for the ACT and it is pulled directly from the API in real time. It is then processed and aggregated in monthly averages. There is one entry for each month back to June 2018 with the average parts per million concentration for 5 particles. Each particle is then assigned a different note and instrument which will play at a speed proportional to the particles concentration during a month. Each month corresponds to two seconds of sound. So if a sound doesn't appear for two seconds, or appears once or twice, that month's had a low concentration.
+		</br>
+		</br>
+Acquiring information from this song is challenging, but I believe that our untrained brains are partly to blame. I hypothesize that with enough practice, meaning could be extracted just as effectively as through a plot. Meaning might not be in the form of neatly defined numbers and figures, but in a general sense of harmony disruption.
+		</br>
+		</br>
+However, the primary goal of this exercise is not to provide a clear account of the ACT Air Quality, but to question the role of context in our preferences to approach data. I also hope to stimulate reflection on the lost art of listening mindfully, especially to the world around us. Ultimately, I wish to plant a seed in the listeners brain that germinates into a new way of engaging with the world, so the next time she goes for a walk, it is not only a visual spectacle but also a symphony sung by the world. 
+</br>
+</br>
+
+
+	</div>
+	<p id="years" style="font-size: 150px; display: none"></p>
+
+	<div id="global_player">
+    	<button id="play" class="slide_from_top" onclick="play()">Play data</button>
+    </div>
+
+    <div id="individual" style="display: none;">
+    <h2>You can listen to each individual particle sound below and then listen to the data again to try and identify each sound</h2>
+    <div class='player0'>
+	
+    	<button id="play0" class="slide_from_left" style = "height: 40px; font-size: 13px" onclick="play0()">Listen to CO</button>
+    </div>
+
+    <div class='player1'>
+	
+    	<button id="play1" class="slide_from_left" style = "height: 40px; font-size: 13px" onclick="play1()">Listen to NO2</button>
+    </div>
+
+    <div class='player2'>
+	
+    	<button id="play2" class="slide_from_left" style = "height: 40px; font-size: 13px" onclick="play2()">Listen to O3</button>
+    </div>
+
+    <div class='player3'>
+	
+    	<button id="play3" class="slide_from_left" style = "height: 40px; font-size: 13px" onclick="play3()">Listen to PM10</button>
+    </div>
+
+    <div class='player4'>
+	
+    	<button id="play4" class="slide_from_left" style = "height: 40px; font-size: 13px" onclick="play4()">Listen to PM2.5</button>
+    </div>
+    </div>
+    
+	</div>
+
+</body>
+
+<script type="text/javascript">
+
+var iter_year = 0
+var intervalID
+function play() {
+        var audio = document.getElementById("audio");
+        iter_year = 0
+        audio.play();
+        $(".text").css("display", 'none')
+        $("#years").css("display", 'block')
+        $("#years").css("margin-top", '30%')
+        $("#global_player").css("display", 'none')
+        $("#individual").css("display", 'none')
+        log_years();
+      }	
+
+function play0() {
+        var audio = document.getElementById("audio0");
+        audio.play();
+      }	
+
+function play1() {
+        var audio = document.getElementById("audio1");
+        audio.play();
+      }	
+
+function play2() {
+        var audio = document.getElementById("audio2");
+        audio.play();
+      }	
+
+function play3() {
+        var audio = document.getElementById("audio3");
+        audio.play();
+      }	
+
+function play4() {
+        var audio = document.getElementById("audio4");
+        audio.play();
+      }	
+
+
+function log_years() {
+	//var months_string = '{{months}}'
+	//document.getElementById("years").innerHTML = months_string.split(',')[iter_year].substring(6,13)
+	//iter_year = iter_year + 1	
+	intervalID = window.setInterval(myCallback, 2000);
+	console.log(intervalID)
+	
+}
+
+function myCallback() {
+	var months_string = '{{months}}'
+	if (months_string.split(',').length > iter_year) {
+	document.getElementById("years").innerHTML = months_string.split(',')[iter_year].substring(6,13)
+	months_string.split(',')[0]
+	console.log(months_string.split(',')[iter_year].substring(6,13))
+	console.log(months_string.split(',').length)
+	iter_year = iter_year + 1
+	} else {
+		clearInterval(intervalID);
+
+		$("#global_player").css("display", 'block')
+		$("#global_player").css("margin-top", '10%')
+		$("#years").css("display", 'none')
+		$("#play").css("display", 'block')
+		$("#play").css("margin","auto")
+		$("#play").text("Play Again")	
+		$("#individual").css("display", 'block')
+	}
+}
+
+
+var animateButton = function(e) {
+
+  e.preventDefault;
+  //reset animation
+  e.target.classList.remove('animate');
+  
+  e.target.classList.add('animate');
+  setTimeout(function(){
+    e.target.classList.remove('animate');
+  },700);
+};
+
+var bubblyButtons = document.getElementsByClassName("bubbly-button");
+
+for (var i = 0; i < bubblyButtons.length; i++) {
+  bubblyButtons[i].addEventListener('click', animateButton, false);
+}
+
+
+
+
+</script>
+</html>
